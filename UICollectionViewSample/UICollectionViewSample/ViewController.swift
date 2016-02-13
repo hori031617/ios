@@ -86,23 +86,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             okAction = UIAlertAction(title: "貯金する", style: .Default){
                 action in self.userDefault.setObject(indexPath.row+1, forKey: String(indexPath.row))
                 self.userDefault.synchronize()
+                collectionView.reloadItemsAtIndexPaths([indexPath])
             }
             title = "貯金"
             message = "貯金しますか？"
-
         } else {
             okAction = UIAlertAction(title: "取り消し", style: .Default){
                 action in self.userDefault.removeObjectForKey(String(indexPath.row))
                 self.userDefault.synchronize()
                 collectionView.reloadItemsAtIndexPaths([indexPath])
-
             }
             title = "取り消し"
             message = "取り消しますか？"
         }
         
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         
@@ -111,6 +109,4 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
 }
-

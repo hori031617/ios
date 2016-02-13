@@ -94,6 +94,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             okAction = UIAlertAction(title: "取り消し", style: .Default){
                 action in self.userDefault.removeObjectForKey(String(indexPath.row))
                 self.userDefault.synchronize()
+                collectionView.reloadItemsAtIndexPaths([indexPath])
+
             }
             title = "取り消し"
             message = "取り消しますか？"

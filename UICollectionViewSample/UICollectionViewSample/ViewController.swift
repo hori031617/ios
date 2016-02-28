@@ -53,17 +53,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.backgroundColor = UIColor.grayColor()
         }
         
-        
         return cell
     }
     
     // セルのレイアウト調整
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(53.0, 53.0)
+        let size = self.view.frame.size.width / 6
+        return CGSizeMake(size, size)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0.5, 1.5, 2.0, 0.5)
+        return UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -71,9 +71,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 1.0
+        return 0.0
     }
-    
     
     // セルが選択されたら
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
@@ -86,21 +85,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             okAction = UIAlertAction(title: "貯金する", style: .Default){
                 action in self.userDefault.setObject(indexPath.row+1, forKey: String(indexPath.row))
                 self.userDefault.synchronize()
+                collectionView.reloadItemsAtIndexPaths([indexPath])
             }
             title = "貯金"
             message = "貯金しますか？"
-
         } else {
             okAction = UIAlertAction(title: "取り消し", style: .Default){
                 action in self.userDefault.removeObjectForKey(String(indexPath.row))
                 self.userDefault.synchronize()
+                collectionView.reloadItemsAtIndexPaths([indexPath])
             }
             title = "取り消し"
             message = "取り消しますか？"
         }
         
         let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
-        
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         
         
@@ -109,6 +108,4 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
-    
 }
-

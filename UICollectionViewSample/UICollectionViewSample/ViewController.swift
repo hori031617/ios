@@ -53,17 +53,17 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             cell.backgroundColor = UIColor.grayColor()
         }
         
-        
         return cell
     }
     
     // セルのレイアウト調整
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        return CGSizeMake(53.0, 53.0)
+        let size = self.view.frame.size.width / 6
+        return CGSizeMake(size, size)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0.5, 1.5, 2.0, 0.5)
+        return UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
@@ -71,9 +71,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 1.0
+        return 0.0
     }
-    
     
     // セルが選択されたら
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

@@ -12,6 +12,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     @IBOutlet weak var collectionViewList: UICollectionView!
     let userDefault = NSUserDefaults.standardUserDefaults()
+    let yearDays = 365
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // カスタムセル
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         self.collectionViewList.registerNib(nib, forCellWithReuseIdentifier: "cell")
+        
+        let keys = self.userDefault.dictionaryRepresentation()
+        if (keys.count == yearDays) {
+            resetMoney()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +43,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // セルの返却数
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 365
+        return yearDays
     }
     
     // セルの表示内容
@@ -107,5 +113,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // userDefaultsに保存されている除菌情報を削除する
+    func resetMoney(){
+        let resetAction = UIAlertAction(title: "リセット", style: .Default){
+            action in self.userDefault.removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        let alertController = UIAlertController(title: "毎日貯金達成しました！", message: "リセットしますか？", preferredStyle: .Alert)
+        alertController.addAction(resetAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        collectionViewList.reloadData()
     }
 }

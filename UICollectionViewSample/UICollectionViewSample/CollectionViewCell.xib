@@ -13,7 +13,7 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" fixedFrame="YES" text="365" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-Zb-Dw1">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="365" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ot4-Zb-Dw1">
                         <rect key="frame" x="0.0" y="0.0" width="54" height="54"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -22,6 +22,12 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="Ot4-Zb-Dw1" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="3L3-RS-lYd"/>
+                <constraint firstAttribute="bottom" secondItem="Ot4-Zb-Dw1" secondAttribute="bottom" id="D6B-Ot-DSc"/>
+                <constraint firstItem="Ot4-Zb-Dw1" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="DSe-Zn-fbr"/>
+                <constraint firstAttribute="trailing" secondItem="Ot4-Zb-Dw1" secondAttribute="trailing" id="V6k-j7-43O"/>
+            </constraints>
             <size key="customSize" width="100" height="65"/>
             <connections>
                 <outlet property="collectionCell" destination="Ot4-Zb-Dw1" id="uAe-yI-rLT"/>

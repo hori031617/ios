@@ -8,10 +8,14 @@
 
 import UIKit
 
+let linePoint: CGFloat = 1 // 罫線の太さ
+let numberOfCols: CGFloat = 6  //　１行に表示するセルの数
+
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionViewList: UICollectionView!
     let userDefault = NSUserDefaults.standardUserDefaults()
+    let yearDays = 365
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +27,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         // カスタムセル
         let nib = UINib(nibName: "CollectionViewCell", bundle: nil)
         self.collectionViewList.registerNib(nib, forCellWithReuseIdentifier: "cell")
+        
+        let keys = self.userDefault.dictionaryRepresentation()
+        if (keys.count == yearDays) {
+            resetMoney()
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -37,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // セルの返却数
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 365
+        return yearDays
     }
     
     // セルの表示内容
@@ -58,7 +67,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // セルのレイアウト調整
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = self.view.frame.size.width / 6
+        // (端末の横幅 - 各セルの罫線の合計) / １行に表示するセルの個数
+        let size = floor((self.view.frame.size.width - (linePoint*numberOfCols)) / numberOfCols)
         return CGSizeMake(size, size)
     }
     
@@ -67,11 +77,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0.0
+        return linePoint
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0.0
+        return linePoint
     }
     
     // セルが選択されたら
@@ -107,5 +117,21 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         alertController.addAction(cancelAction)
         
         self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    // userDefaultsに保存されている除菌情報を削除する
+    func resetMoney(){
+        let resetAction = UIAlertAction(title: "リセット", style: .Default){
+            action in self.userDefault.removePersistentDomainForName(NSBundle.mainBundle().bundleIdentifier!)
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        let alertController = UIAlertController(title: "毎日貯金達成しました！", message: "リセットしますか？", preferredStyle: .Alert)
+        alertController.addAction(resetAction)
+        alertController.addAction(cancelAction)
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
+        
+        collectionViewList.reloadData()
     }
 }

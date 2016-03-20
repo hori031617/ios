@@ -17,17 +17,23 @@ class DetailViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         let userDefault = NSUserDefaults.standardUserDefaults()
-        var totalCount = 0
+        var tmpTotalCount = 0
         
         for day in 0..<365 {
             let tmpSaving = userDefault.objectForKey(String(day))
             if tmpSaving != nil {
                 let intSaving = tmpSaving as! Int
-                totalCount += intSaving
+                tmpTotalCount += intSaving
             }
         }
         
-        totalMoney.text = String(totalCount)
+        let totalCount = NSNumber(integer: tmpTotalCount)
+        let formatter = NSNumberFormatter()
+        formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+        formatter.groupingSeparator = ","
+        formatter.groupingSize = 3
+        
+        totalMoney.text = formatter.stringFromNumber(totalCount)
     }
 
     override func didReceiveMemoryWarning() {

@@ -28,7 +28,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Q0S-Sh-OT4">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="cell" id="Q0S-Sh-OT4">
                                         <rect key="frame" x="0.0" y="64" width="53" height="53"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -77,37 +77,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="現在の貯金額: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWP-Dz-hWr">
-                                <rect key="frame" x="40" y="173" width="112" height="32"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="現在の貯金額: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SWP-Dz-hWr">
+                                <rect key="frame" x="36" y="173" width="112" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="66,430" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-eD-NWq">
-                                <rect key="frame" x="179" y="175" width="59" height="27"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="66,430" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJX-eD-NWq">
+                                <rect key="frame" x="194" y="175" width="56" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYq-Gr-yRO">
-                                <rect key="frame" x="246" y="180" width="22" height="24"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="円" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lYq-Gr-yRO">
+                                <rect key="frame" x="258" y="180" width="15" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" image="piggy_bank.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="k7l-8Q-LLf">
-                                <rect key="frame" x="9" y="300" width="303" height="222"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="222" id="Eeo-8v-P0L"/>
-                                    <constraint firstAttribute="width" constant="303" id="TkR-SP-fiv"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="nJX-eD-NWq" secondAttribute="trailing" constant="54" id="121-Sr-owj"/>
                             <constraint firstItem="lYq-Gr-yRO" firstAttribute="top" secondItem="7zA-Zt-sue" secondAttribute="bottom" constant="116" id="6lC-cj-xxQ"/>
-                            <constraint firstItem="PCA-xa-dMd" firstAttribute="top" secondItem="k7l-8Q-LLf" secondAttribute="bottom" constant="46" id="EDo-O6-Jnc"/>
                             <constraint firstItem="nJX-eD-NWq" firstAttribute="top" secondItem="7zA-Zt-sue" secondAttribute="bottom" constant="111" id="TzR-Bh-A0i"/>
                             <constraint firstItem="lYq-Gr-yRO" firstAttribute="leading" secondItem="nJX-eD-NWq" secondAttribute="trailing" constant="8" id="auV-2h-TDh"/>
                             <constraint firstItem="SWP-Dz-hWr" firstAttribute="leading" secondItem="7fN-nC-0sR" secondAttribute="leadingMargin" constant="20" id="kgS-U8-6LL"/>
@@ -143,7 +135,4 @@
             <point key="canvasLocation" x="456" y="-368"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="piggy_bank.jpg" width="640" height="418"/>
-    </resources>
 </document>

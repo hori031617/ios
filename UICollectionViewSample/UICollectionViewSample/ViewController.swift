@@ -8,6 +8,9 @@
 
 import UIKit
 
+let linePoint: CGFloat = 1 // 罫線の太さ
+let numberOfCols: CGFloat = 6  //　１行に表示するセルの数
+
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionViewList: UICollectionView!
@@ -64,7 +67,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     // セルのレイアウト調整
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
-        let size = self.view.frame.size.width / 6
+        // (端末の横幅 - 各セルの罫線の合計) / １行に表示するセルの個数
+        let size = floor((self.view.frame.size.width - (linePoint*numberOfCols)) / numberOfCols)
         return CGSizeMake(size, size)
     }
     
@@ -73,11 +77,11 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0.0
+        return linePoint
     }
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAtIndex section: Int) -> CGFloat {
-        return 0.0
+        return linePoint
     }
     
     // セルが選択されたら

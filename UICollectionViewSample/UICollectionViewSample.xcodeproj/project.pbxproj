@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		872EE9641C82DA6900060B3A /* piggy_bank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 872EE9631C82DA6900060B3A /* piggy_bank.jpg */; };
 		874747891C6C78FA004D3718 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874747881C6C78FA004D3718 /* DetailViewController.swift */; };
 		87EC11111C4B8BC600C3C832 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC11101C4B8BC600C3C832 /* AppDelegate.swift */; };
 		87EC11131C4B8BC600C3C832 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87EC11121C4B8BC600C3C832 /* ViewController.swift */; };
@@ -20,7 +19,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		872EE9631C82DA6900060B3A /* piggy_bank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = piggy_bank.jpg; sourceTree = "<group>"; };
 		874747881C6C78FA004D3718 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		87EC110D1C4B8BC600C3C832 /* UICollectionViewSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UICollectionViewSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87EC11101C4B8BC600C3C832 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +62,6 @@
 		87EC110F1C4B8BC600C3C832 /* UICollectionViewSample */ = {
 			isa = PBXGroup;
 			children = (
-				872EE9631C82DA6900060B3A /* piggy_bank.jpg */,
 				87EC11101C4B8BC600C3C832 /* AppDelegate.swift */,
 				87EC11121C4B8BC600C3C832 /* ViewController.swift */,
 				87EC11141C4B8BC600C3C832 /* Main.storyboard */,
@@ -142,7 +139,6 @@
 				87EC111B1C4B8BC600C3C832 /* Assets.xcassets in Resources */,
 				87EC11281C4B8CC000C3C832 /* CollectionViewCell.xib in Resources */,
 				87EC11161C4B8BC600C3C832 /* Main.storyboard in Resources */,
-				872EE9641C82DA6900060B3A /* piggy_bank.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

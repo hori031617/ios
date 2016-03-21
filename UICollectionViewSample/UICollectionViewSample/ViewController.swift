@@ -8,14 +8,13 @@
 
 import UIKit
 
-let linePoint: CGFloat = 1 // 罫線の太さ
-let numberOfCols: CGFloat = 6  //　１行に表示するセルの数
-
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var collectionViewList: UICollectionView!
     let userDefault = NSUserDefaults.standardUserDefaults()
     let yearDays = 365
+    let linePoint: CGFloat = 1 // 罫線の太さ
+    let numberOfCols: CGFloat = 6  //　１行に表示するセルの数
     
     override func viewDidLoad() {
         super.viewDidLoad()
